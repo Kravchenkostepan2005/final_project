@@ -1,40 +1,74 @@
-import schedule
-import time
+def interface():
+    print("""
+    1 - add new note
+    2 - show all notes
+    3 - change the note
+    4 - delete the note
+    5 - break
+    """)
+    k = input("choice number: ")
+    return k
 
 
-def func_1():
-    print("Go to the shop")
+def answering(k):
+    if k == "1":
+        add_new_note()
+    if k == "2":
+        show_all_notes()
+    if k == "3":
+        change_note()
+    if k == "4":
+        delete_note()
+    if k == "5":
+        print("Thanks, bye")
+        exit()
 
 
-def func_2():
-    print("Study Czech")
+def save(note):
+    with open("1.txt", "a+") as f:
+        f.write(note)
+        f.write("\n")
 
 
-def func_3():
-    print("Do homework")
+def add_new_note():
+    b = input("Enter the name of the file: ")
+    with open(b, "a+") as f:
+        a = input("Add new note: ")
+        f.write(a + "\n")
 
 
-def func_4():
-    print("Play basketball")
+def show_all_notes():
+    with open("1.txt") as f:
+        all_notes = f.readlines()
+        for i in all_notes:
+            print(i)
 
 
-def func_5():
-    print("Prepare for the final exam at school")
+def change_note():
+    g = input("Enter the file to change the note in: ")
+    with open(g + ".txt", "w+") as f:
+        f.readlines()
+        k = input("if you want to delete a note - press d, if you want to add it - press a: ")
+        if k == "d":
+            delete_note()
+        elif k == "a":
+            add_new_note()
 
 
-def func_6():
-    print("Study English")
+def delete_note():
+    g = input("Enter the file to delete the note in: ")
+    with open(g + ".txt", "r+") as f:
+        lines = f.readlines()
+    with open(g + ".txt", "w+") as f:
+        h = input("Enter the note to delete: ")
+        for line in lines:
+            if line != "nickname_to_delete" + "\n":
+                f.write(line)
 
 
-schedule.every(1).minutes.do(func_1)
-schedule.every().day.at("10:30").do(func_2)
-schedule.every().monday.do(func_5)
-schedule.every().friday.do(func_4)
-schedule.every().wednesday.at("13:15").do(func_3)
-schedule.every().hour.at(":35").do(func_2)
-schedule.every().tuesday.at("17:10").do(func_6)
-schedule.every().thursday.at("19:10").do(func_6)
+delete_note()
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+
+def main():
+    choice = interface()
+    answering(choice)
