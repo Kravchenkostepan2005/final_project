@@ -58,7 +58,6 @@ def change_note():
 def delete_note():
     g = input("Enter the file to delete the note in: ")
     with open(g, "r") as f:
-        # add_new_note()
         lines = f.readlines()
         print(lines)
 
@@ -70,7 +69,6 @@ def delete_note():
             if line[:-1] != h:
                 f.write(line)
 
-            # delete_note()
 
 
 def main():
@@ -80,4 +78,3 @@ def main():
 
 while True:
     main()
-    
