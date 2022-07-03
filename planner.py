@@ -46,7 +46,7 @@ def show_all_notes():
 
 def change_note():
     g = input("Enter the file to change the note in: ")
-    with open(g + ".txt", "w+") as f:
+    with open(g, "w+") as f:
         f.readlines()
         k = input("if you want to delete a note - press d, if you want to add it - press a: ")
         if k == "d":
@@ -57,14 +57,14 @@ def change_note():
 
 def delete_note():
     g = input("Enter the file to delete the note in: ")
-    with open(g + ".txt", "r+") as f:
+    with open(g, "w+") as f:
+        add_new_note()
         lines = f.readlines()
-    with open(g + ".txt", "w+") as f:
+        print(lines)
         h = input("Enter the note to delete: ")
         for line in lines:
-            if line != "nickname_to_delete" + "\n":
+            if line != h:
                 f.write(line)
-
 
 delete_note()
 
@@ -72,3 +72,5 @@ delete_note()
 def main():
     choice = interface()
     answering(choice)
+
+main()
