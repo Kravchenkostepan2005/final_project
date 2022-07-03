@@ -1,10 +1,10 @@
 def interface():
-    print("""
-    1 - add new note
-    2 - show all notes
-    3 - change the note
-    4 - delete the note
-    5 - break
+    print(""" 
+    1 - add new note 
+    2 - show all notes 
+    3 - change the note 
+    4 - delete the note 
+    5 - break 
     """)
     k = input("choice number: ")
     return k
@@ -57,20 +57,27 @@ def change_note():
 
 def delete_note():
     g = input("Enter the file to delete the note in: ")
-    with open(g, "w+") as f:
-        add_new_note()
+    with open(g, "r") as f:
+        # add_new_note()
         lines = f.readlines()
         print(lines)
+
+    with open(g, "w") as f:
         h = input("Enter the note to delete: ")
+        print(f'h /{h}/')
         for line in lines:
-            if line != h:
+            print(f'line /{line[:-1]}/, h /{h}/')
+            if line[:-1] != h:
                 f.write(line)
 
-delete_note()
+            # delete_note()
 
 
 def main():
     choice = interface()
     answering(choice)
 
-main()
+
+while True:
+    main()
+    
