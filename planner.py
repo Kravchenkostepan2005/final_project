@@ -38,7 +38,8 @@ def add_new_note():
 
 
 def show_all_notes():
-    with open("1.txt", "r+") as f:
+    b = input("Enter the name of the file: ")
+    with open(b, "r+") as f:
         all_notes = f.readlines()
         for i in all_notes:
             print(i)
