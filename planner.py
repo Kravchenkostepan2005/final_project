@@ -38,7 +38,7 @@ def add_new_note():
 
 
 def show_all_notes():
-    with open("1.txt") as f:
+    with open("1.txt", "r+") as f:
         all_notes = f.readlines()
         for i in all_notes:
             print(i)
@@ -68,7 +68,6 @@ def delete_note():
             print(f'line /{line[:-1]}/, h /{h}/')
             if line[:-1] != h:
                 f.write(line)
-
 
 
 def main():
