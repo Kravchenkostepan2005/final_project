@@ -6,20 +6,20 @@ def interface():
     4 - delete the note 
     5 - break 
     """)
-    k = input("choice number: ")
-    return k
+    choice = input("choice number: ")
+    return choice
 
 
-def answering(k):
-    if k == "1":
+def answering(choice):
+    if choice == "1":
         add_new_note()
-    if k == "2":
+    if choice == "2":
         show_all_notes()
-    if k == "3":
+    if choice == "3":
         change_note()
-    if k == "4":
+    if choice == "4":
         delete_note()
-    if k == "5":
+    if choice == "5":
         print("Thanks, bye")
         exit()
 
@@ -31,23 +31,23 @@ def save(note):
 
 
 def add_new_note():
-    b = input("Enter the name of the file: ")
-    with open(b, "a+") as f:
-        a = input("Add new note: ")
-        f.write(a + "\n")
+    name = input("Enter the name of the file: ")
+    with open(name, "a+") as f:
+        new = input("Add new note: ")
+        f.write(new + "\n")
 
 
 def show_all_notes():
-    b = input("Enter the name of the file: ")
-    with open(b, "r+") as f:
+    filename = input("Enter the name of the file: ")
+    with open(filename, "r+") as f:
         all_notes = f.readlines()
         for i in all_notes:
             print(i)
 
 
 def change_note():
-    g = input("Enter the file to change the note in: ")
-    with open(g, "w+") as f:
+    file = input("Enter the file to change the note in: ")
+    with open(file, "w+") as f:
         f.readlines()
         k = input("if you want to delete a note - press d, if you want to add it - press a: ")
         if k == "d":
@@ -57,17 +57,17 @@ def change_note():
 
 
 def delete_note():
-    g = input("Enter the file to delete the note in: ")
-    with open(g, "r") as f:
+    deleting = input("Enter the file to delete the note in: ")
+    with open(deleting, "r") as f:
         lines = f.readlines()
         print(lines)
 
     with open(g, "w") as f:
-        h = input("Enter the note to delete: ")
-        print(f'h /{h}/')
+        note_to_delete = input("Enter the note to delete: ")
+        print(f'h /{note_to_delete}/')
         for line in lines:
-            print(f'line /{line[:-1]}/, h /{h}/')
-            if line[:-1] != h:
+            print(f'line /{line[:-1]}/, h /{note_to_delete}/')
+            if line[:-1] != note_to_delete:
                 f.write(line)
 
 
