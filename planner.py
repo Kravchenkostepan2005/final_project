@@ -25,7 +25,8 @@ def answering(choice):
 
 
 def save(note):
-    with open("1.txt", "a+") as f:
+    name = input("Enter the name of the file: ")
+    with open(name, "a+") as f:
         f.write(note)
         f.write("\n")
 
