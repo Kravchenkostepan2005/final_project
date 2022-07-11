@@ -25,8 +25,7 @@ def answering(choice):
 
 
 def save(note):
-    name = input("Enter the name of the file: ")
-    with open(name, "a+") as f:
+    with open("1.txt", "a+") as f:
         f.write(note)
         f.write("\n")
 
@@ -35,7 +34,7 @@ def add_new_note():
     name = input("Enter the name of the file: ")
     with open(name, "a+") as f:
         new = input("Add new note: ")
-        f.write(new + "\n")
+    f.write(new + "\n")
 
 
 def show_all_notes():
@@ -63,7 +62,7 @@ def delete_note():
         lines = f.readlines()
         print(lines)
 
-    with open(g, "w") as f:
+    with open(deleting, "w") as f:
         note_to_delete = input("Enter the note to delete: ")
         print(f'h /{note_to_delete}/')
         for line in lines:
